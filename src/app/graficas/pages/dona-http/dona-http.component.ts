@@ -12,7 +12,7 @@ export class DonaHttpComponent implements OnInit{
    public doughnutChartLabels: string[] = [ 
     // 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' 
   ];
-   public doughnutChartData: ChartData<'doughnut'> = {
+   public doughnutChartData: ChartData<'doughnut', number[]> = {
     //  labels: this.doughnutChartLabels,
     datasets: [
       //  { data: [ 350, 450, 100 ] }
@@ -36,7 +36,7 @@ export class DonaHttpComponent implements OnInit{
     this.graficasServices.getUsuariosData()
         .subscribe(({labels, values})=>{
           this.doughnutChartLabels = labels;
-          this.doughnutChartData.datasets.push(values);
+          this.doughnutChartData.datasets.push(values[1]);
         });
   }
 
